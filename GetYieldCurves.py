@@ -1,14 +1,13 @@
 import requests, pprint
 import json, xmltodict, re
 
-def main():
-    
+def main():    
     pp = pprint.PrettyPrinter()
       
     url = 'https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/XmlView.aspx?data=yield'
     page = getPageText(url)
    
-    pp.pprint(parseTreasuryXML(page))    
+    pp.pprint(json.dumps(parseTreasuryXML(page)))
 
 def getPageText(url):
     # intialize session
